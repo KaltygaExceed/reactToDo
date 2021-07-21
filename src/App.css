@@ -30,7 +30,7 @@ header {
 }
 
 #textInput {
-    width: 400px;
+    width: 480px;
     outline: none;
     border:none;
     border-bottom: lightgray 1px solid;
@@ -75,5 +75,18 @@ header {
 }
 
 .taskMenu {
+    padding: 15px;
     height: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: lightgray 1px solid;
+}
+
+.containerWithMenuButtons {
+    display: inline-block;
+}
+
+.menuButton {
+    background: rgba(255,255,255,0);
+    border: 1px solid lightgray;
 }
