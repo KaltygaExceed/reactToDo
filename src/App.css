@@ -89,4 +89,21 @@ header {
 .menuButton {
     background: rgba(255,255,255,0);
     border: 1px solid lightgray;
+    margin-left: 6px;
+}
+
+.task-text {
+    font-size: 18px;
+    margin-left: 11px;
+}
+.done-text {
+    text-decoration: line-through;
+    color: #c6c4c6;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid lightgray 1px;
 }
