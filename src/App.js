@@ -1,5 +1,5 @@
 import './App.css';
-
+import Header from "./Header";
 import React, {useState} from "react";
 
 function App() {
@@ -37,13 +37,13 @@ function App() {
 
     return (
         <div>
-            <header> Your todo list</header>
+            <Header />
             <div className='workspace'>
                 <div className='inputElem'>
                     <input id="textInput" placeholder="Enter your task name here" type="text" value={inputValue}
                            onChange={(e) => setInputValue(e.target.value)}
-                           onKeyUp={(e) => {
-                               if (e.key === 'Enter') {
+                           onKeyDown={(e) => {
+                               if (e.key === 'Enter' && inputValue.trim() !== '') {
                                    onTodo()
                                }
                            }}
@@ -68,7 +68,8 @@ function App() {
                     }
                     {
                         todos.length > 0 &&
-                        <div className='taskMenu'> {checkedFilter()} tasks left <div className='containerWithMenuButtons'>
+                        <div className='taskMenu'> {checkedFilter()} tasks left <div
+                            className='containerWithMenuButtons'>
                             <button className='menuButton'>All</button>
                             <button className='menuButton'>ToDo</button>
                             <button className='menuButton'>Completed</button>
