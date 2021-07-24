@@ -1,7 +1,7 @@
-import React from 'react'
+import style from "./Header.module.css"
 
 export default function Header() {
     return (
-        <header>Your todo list</header>
+        <header className={style.header}>Your todo list</header>
     )
 }

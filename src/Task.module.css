@@ -1,0 +1,54 @@
+.tasks {
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    word-break: break-word;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid lightgray 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskText {
+    font-size: 18px;
+}
+
+.doneText {
+    text-decoration: line-through;
+    font-size: 18px;
+    color: #c6c4c6;
+}
+
+.fakeButton {
+    display: none;
+}
+
+.checkSvg {
+    width: 16px;
+}
+
+.checkDone {
+    display: none;
+}
+
+.deleteContainer {
+    margin-right: 10px;
+}
+
+.deleteButton {
+    width: 24px;
+    fill: #b3b1b3;
+}
+
+.deleteButton:hover {
+    fill: black;
+}

@@ -1,0 +1,9 @@
+.containerWithMenuButtons {
+    display: inline-block;
+}
+
+.menuButton {
+    background: rgba(255,255,255,0);
+    border: 1px solid lightgray;
+    margin-left: 6px;
+}

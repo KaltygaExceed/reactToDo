@@ -1,6 +1,11 @@
 import './App.css';
-import Header from "./Header";
 import React, {useState} from "react";
+import Task from "./Task";
+import Header from "./Header";
+import FilterButtons from "./FilterButtons";
+import InputTask from "./InputTask";
+import TaskCounter from "./TaskCounter";
+import DeleteChecked from "./DeleteChecked"
 
 function App() {
     const [todos, setTodo] = useState([])
@@ -17,6 +22,12 @@ function App() {
     const delTodo = (id) => {
         setTodo((todos) => (
             todos.filter(todos => todos.id !== id)
+        ))
+    }
+
+    const delCompleted = () => {
+        setTodo((todos) => (
+            todos.filter(todos => todos.isCheck === false)
         ))
     }
 
@@ -37,43 +48,37 @@ function App() {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div className='workspace'>
-                <div className='inputElem'>
-                    <input id="textInput" placeholder="Enter your task name here" type="text" value={inputValue}
-                           onChange={(e) => setInputValue(e.target.value)}
-                           onKeyDown={(e) => {
-                               if (e.key === 'Enter' && inputValue.trim() !== '') {
-                                   onTodo()
-                               }
-                           }}
-                    />
-                </div>
+               <InputTask
+                    inputValue={inputValue}
+                    setInputValue={setInputValue}
+                    onTodo={onTodo}
+                />
                 <div className='task-container'>
                     {
                         todos.map((todo) => {
-                            return (<div className='tasks' key={todo.id}>
-                                <div className='checkbox'>
-                                    <input type="checkbox" onChange={() => check(todo.id)}
-                                           defaultChecked={todo.isCheck}/>
-                                </div>
-                                <p className={todo.isCheck ? 'task-text done-text' : 'task-text'}>{todo.text}</p>
-                                <div className='deleteContainer'><input
-                                    type="button" className='delete Button' value='Delete'
-                                    onClick={() => {
-                                        delTodo(todo.id)
-                                    }}/></div>
-                            </div>)
+                            return <Task
+                                id={todo.id}
+                                isCheck={todo.isCheck}
+                                check={check}
+                                delTodo={delTodo}
+                                text={todo.text}
+                                key={todo.id}
+                            />
                         })
                     }
                     {
                         todos.length > 0 &&
-                        <div className='taskMenu'> {checkedFilter()} tasks left <div
-                            className='containerWithMenuButtons'>
-                            <button className='menuButton'>All</button>
-                            <button className='menuButton'>ToDo</button>
-                            <button className='menuButton'>Completed</button>
-                        </div> Clear completed</div>
+                        <div className='taskMenu'>
+                            <TaskCounter
+                            checkedFilter = {checkedFilter}/>
+                            <FilterButtons/>
+                           <DeleteChecked
+                           todos = {todos}
+                           delCompleted = {delCompleted}
+                           />
+                        </div>
                     }
 
                 </div>

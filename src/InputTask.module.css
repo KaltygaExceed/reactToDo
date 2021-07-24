@@ -1,0 +1,20 @@
+.inputElem {
+    justify-content: space-between;
+    width: 500px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    margin-top: 6px;
+    padding: 6px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#textInput {
+    width: 480px;
+    outline: none;
+    border: none;
+    border-bottom: lightgray 1px solid;
+    font: 18px "Tibetan Machine Uni";
+    margin-bottom: 15px;
+}

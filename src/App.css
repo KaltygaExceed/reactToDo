@@ -2,40 +2,15 @@
     text-align: center;
 }
 
-header {
-    margin-bottom: 25px;
-    font: 24px Times;
-    text-align: center;
-}
 
 .workspace {
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
     box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.5);
     width: 500px;
     border-radius: 2px;
     margin-right: auto;
     margin-left: auto;
-}
-.inputElem {
-    justify-content: space-between;
-    width: 500px;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    margin-top: 6px;
-    padding: 6px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#textInput {
-    width: 480px;
-    outline: none;
-    border:none;
-    border-bottom: lightgray 1px solid;
-    font: 18px "Tibetan Machine Uni";
-    margin-bottom: 15px;
 }
 
 .task-container {
@@ -46,34 +21,6 @@ header {
     margin-right: auto;
 }
 
-.containerWithButtons {
-    display: inline-block;
-}
-
-.Button {
-    background: rgb(38 154 142);
-    outline: none;
-    border-radius: 3px;
-    border: 1px solid darkgray;
-    width: 50px;
-    height: 30px;
-    color: white;
-}
-
-.Button:hover {
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-}
-
-.tasks {
-    padding: 5px;
-    border-bottom: 1px solid lightgray;
-    word-break: break-word;
-    word-wrap: break-word;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .taskMenu {
     padding: 15px;
     height: 20px;
@@ -82,28 +29,4 @@ header {
     border-top: lightgray 1px solid;
 }
 
-.containerWithMenuButtons {
-    display: inline-block;
-}
 
-.menuButton {
-    background: rgba(255,255,255,0);
-    border: 1px solid lightgray;
-    margin-left: 6px;
-}
-
-.task-text {
-    font-size: 18px;
-    margin-left: 11px;
-}
-.done-text {
-    text-decoration: line-through;
-    color: #c6c4c6;
-}
-
-.checkbox {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: solid lightgray 1px;
-}

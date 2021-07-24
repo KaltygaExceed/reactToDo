@@ -1,0 +1,18 @@
+.delAllPlaceholder {
+    border: 1px solid transparent;
+    width: 120px;
+}
+
+.clearAll {
+    display: inline;
+    width: 120px;
+    color: #b3b1b3;
+}
+
+.clearAll:hover {
+    color: black;
+}
+
+.clearAllNonActive {
+    display: none;
+}
