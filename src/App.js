@@ -10,6 +10,7 @@ import DeleteChecked from "./DeleteChecked/DeleteChecked"
 function App() {
     const [todos, setTodo] = useState([])
     const [inputValue, setInputValue] = useState('')
+    const [testValue, setTestValue] = useState('Hello world')
 
     const onTodo = () => {
         setTodo((todos) => ([
@@ -48,7 +49,9 @@ function App() {
 
     return (
         <div>
-            <Header/>
+            <Header
+                value = {testValue}
+            />
             <div className='workspace'>
                <InputTask
                     inputValue={inputValue}
