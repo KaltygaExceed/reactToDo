@@ -1,11 +1,11 @@
 import './App.css';
 import React, {useState} from "react";
-import Task from "./Task";
-import Header from "./Header";
-import FilterButtons from "./FilterButtons";
-import InputTask from "./InputTask";
-import TaskCounter from "./TaskCounter";
-import DeleteChecked from "./DeleteChecked"
+import Task from "./Task/Task";
+import Header from "./Header/Header";
+import FilterButtons from "./FilterButtons/FilterButtons";
+import InputTask from "./InputTask/InputTask";
+import TaskCounter from "./TaskCounter/TaskCounter";
+import DeleteChecked from "./DeleteChecked/DeleteChecked"
 
 function App() {
     const [todos, setTodo] = useState([])
