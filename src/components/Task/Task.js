@@ -1,6 +1,6 @@
 import style from './Task.module.css';
-import trash from '../assets/delete.svg'
-import check from '../assets/check.svg'
+import trash from '../../assets/delete.svg'
+import check from '../../assets/check.svg'
 
 function Task(props) {
     return (<div className={style.tasks}>

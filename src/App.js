@@ -1,24 +1,28 @@
 import './App.css';
 import React, {useState} from "react";
-import Task from "./Task/Task";
-import Header from "./Header/Header";
-import FilterButtons from "./FilterButtons/FilterButtons";
-import InputTask from "./InputTask/InputTask";
-import TaskCounter from "./TaskCounter/TaskCounter";
-import DeleteChecked from "./DeleteChecked/DeleteChecked"
+import Task from "./components/Task/Task";
+import Header from "./components/Header/Header";
+import FilterButtons from "./components/FilterButtons/FilterButtons";
+import InputTask from "./components/InputTask/InputTask";
+import TaskCounter from "./components/TaskCounter/TaskCounter";
+import DeleteChecked from "./components/DeleteChecked/DeleteChecked"
+import {useSelector} from "react-redux";
+
 
 function App() {
-    const [todos, setTodo] = useState([])
+     const [todo, setTodo] = useState([])
     const [inputValue, setInputValue] = useState('')
-    const [testValue, setTestValue] = useState('Hello world')
 
-    const onTodo = () => {
-        setTodo((todos) => ([
-            ...todos,
-            {text: inputValue, id: Date.now(), isCheck: false}
-        ]))
-        setInputValue('')
-    }
+  const {todos} =  useSelector((state) => state.reposReducer)
+
+    // const onTodo = () => {
+    //     setTodo((todos) => ([
+    //         ...todos,
+    //         {text: inputValue, id: Date.now(), isCheck: false}
+    //     ]))
+    //     setInputValue('')
+    //
+    // }
 
     const delTodo = (id) => {
         setTodo((todos) => (
@@ -50,13 +54,12 @@ function App() {
     return (
         <div>
             <Header
-                value = {testValue}
+                value = "Your todo list"
             />
             <div className='workspace'>
                <InputTask
                     inputValue={inputValue}
                     setInputValue={setInputValue}
-                    onTodo={onTodo}
                 />
                 <div className='task-container'>
                     {
