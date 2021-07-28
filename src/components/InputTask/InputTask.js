@@ -1,19 +1,21 @@
 import style from './InputTask.module.css';
-import React from "react";
+import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import { AddTodo} from "../../redux/actions/types";
+import {AddTodo} from "../../redux/actions/todosActions";
 
-function InputTask (props) {
-const dispatch = useDispatch()
+
+function InputTask() {
+    const [inputValue, setInputValue] = useState('')
+    const dispatch = useDispatch()
     return (
         <div className={style.inputElem}>
-            <input id={style.textInput} placeholder="Enter your task name here" type="text" value={props.inputValue}
-                   onChange={(e) => props.setInputValue(e.target.value)}
+            <input id={style.textInput} placeholder="Enter your task name here" type="text" value={inputValue}
+                   onChange={(e) => setInputValue(e.target.value)}
                    onKeyDown={(e) => {
-                       if (e.key === 'Enter' && props.inputValue.trim() !== '') {
-                           dispatch(AddTodo({text: props.inputValue, id: Date.now(), isCheck: false}))
+                       if (e.key === 'Enter' && inputValue.trim() !== '') {
+                           dispatch(AddTodo({text: inputValue, id: Date.now(), isCheck: false}))
+                           setInputValue('')
                            e.target.value = ''
-
                        }
                    }}
             />

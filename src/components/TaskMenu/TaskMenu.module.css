@@ -1,0 +1,7 @@
+.taskMenu {
+    padding: 15px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: lightgray 1px solid;
+}

@@ -12,20 +12,5 @@
     margin-left: auto;
 }
 
-.task-container {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.taskMenu {
-    padding: 15px;
-    height: 20px;
-    display: flex;
-    justify-content: space-between;
-    border-top: lightgray 1px solid;
-}
 
 

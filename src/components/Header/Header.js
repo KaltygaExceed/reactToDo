@@ -1,7 +1,7 @@
 import style from "./Header.module.css"
 
-export default function Header(props) {
+export default function Header({value}) {
     return (
-        <header className={style.header}>{props.value}</header>
+        <header className={style.header}>{value}</header>
     )
 }
