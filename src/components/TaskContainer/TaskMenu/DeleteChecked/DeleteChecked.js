@@ -1,7 +1,7 @@
 import style from './DeleteChecked.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {DelCompleted} from "../../../redux/actions/todosActions";
+import {DelCompleted} from "../../../../redux/actions/todosActions";
 
 function DeleteChecked() {
     const dispatch = useDispatch()
