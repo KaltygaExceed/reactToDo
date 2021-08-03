@@ -15,6 +15,8 @@ const defaultState = {
     viewOptions: 'all'
 }
 
+
+
 export default function todosReducer(state = defaultState, action) {
     switch (action.type) {
         case ADD_TODO:

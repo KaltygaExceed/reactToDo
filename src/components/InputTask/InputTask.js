@@ -14,9 +14,18 @@ function InputTask() {
                    onChange={(e) => setInputValue(e.target.value)}
                    onKeyDown={(e) => {
                        if (e.key === 'Enter' && inputValue.trim() !== '') {
+
+
+
+
+
+
                            dispatch(AddTodo({text: inputValue, id: Date.now(), isCheck: false}))
                            setInputValue('')
                            e.target.value = ''
+
+
+
                        }
                    }}
             />
