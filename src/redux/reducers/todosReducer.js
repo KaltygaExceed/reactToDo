@@ -6,19 +6,28 @@ import {
     CHECK_ALL,
     VIEW_ALL,
     VIEW_CHECKED,
-    VIEW_UNCHECKED
+    VIEW_UNCHECKED,
+    LOGIN
 } from "../actions/types";
 
 
 const defaultState = {
     todos: [],
-    viewOptions: 'all'
+    viewOptions: 'all',
+    isToken: false
 }
-
 
 
 export default function todosReducer(state = defaultState, action) {
     switch (action.type) {
+        case LOGIN:
+            return {
+                ...state,
+                isToken: true
+            }
+
+        //=============================================================
+
         case ADD_TODO:
             return {
                 ...state,
@@ -28,7 +37,7 @@ export default function todosReducer(state = defaultState, action) {
         case DEL_TODO :
             return {
                 ...state,
-                todos: state.todos.filter(todo => todo.id !== action.id)
+                todos:  state.todos.filter(todo => todo.id !== action.id)
             }
 
         case CHECK_TODO :
@@ -53,6 +62,8 @@ export default function todosReducer(state = defaultState, action) {
                 ...state,
                 todos: state.todos.map(todo => ({...todo, isCheck: true}))
             }
+
+        //=============================================================
 
         case VIEW_ALL:
             return {

@@ -1,7 +1,7 @@
 import style from './TaskCounter.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {CheckAll} from "../../../../redux/actions/todosActions";
+import {checkAllDis} from "../../../../redux/actions/todosActions";
 
 function TaskCounter () {
     const dispatch = useDispatch()
@@ -12,7 +12,7 @@ function TaskCounter () {
     }
 
     return (
-        <div className={style.tasksLeft} onClick={() => dispatch(CheckAll())}>  {checkedFilter()} tasks left</div>
+        <div className={style.tasksLeft} onClick={() => dispatch(checkAllDis())}>  {checkedFilter()} tasks left</div>
     )
 }
 

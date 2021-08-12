@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+}
+
+.workspace {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.5);
+    width: 500px;
+    border-radius: 2px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+

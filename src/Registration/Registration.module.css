@@ -1,4 +1,4 @@
-.logPage{
+.regPage{
     display: flex;
     flex-direction: column;
     padding: 6px;
@@ -25,7 +25,7 @@ input {
     margin-bottom: 15px;
 }
 
-.loginButton {
+.regButton {
     background: transparent;
     color: lightgray;
     transition: 0.2s;
@@ -37,7 +37,7 @@ input {
     box-shadow: 1px 1px 5px 2px #bbbbbb;
     border-radius: 2px;
 }
-.loginButton:hover{
+.regButton:hover{
 
     background: radial-gradient(circle, rgba(252,252,252,1) 1%, rgba(198,254,255,0.442225392296719) 100%);
     color: black;

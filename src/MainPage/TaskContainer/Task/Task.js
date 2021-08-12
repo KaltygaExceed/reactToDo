@@ -1,9 +1,9 @@
 import style from './Task.module.css';
 import check from '../../../assets/check.svg'
-import {DelTodo} from "../../../redux/actions/todosActions";
-import {CheckTodo} from "../../../redux/actions/todosActions";
+import {deleteTodoDis} from "../../../redux/actions/todosActions";
+import {checkTodoDis} from "../../../redux/actions/todosActions";
 import {useDispatch} from "react-redux";
-import Delete from "../../UI/Delete";
+import Delete from "../../../components/UI/Delete";
 
 function Task({todo}) {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ function Task({todo}) {
             <div className={style.checkbox}>
                 <input className={style.fakeButton}
                        type="checkbox"
-                       onChange={() => dispatch(CheckTodo(todo.id))}
+                       onChange={() => dispatch(checkTodoDis(todo.id, todo.isCheck))}
                        defaultChecked={todo.isCheck}
                 />
                 <img src={check} alt="Check"
@@ -25,7 +25,7 @@ function Task({todo}) {
             <input
                 type="button" className={style.fakeButton} value='Delete'
                 onClick={() => {
-                    dispatch(DelTodo(todo.id))
+                    dispatch(deleteTodoDis(todo.id))
                 }}/>
             <Delete
             className={style.deleteButton}

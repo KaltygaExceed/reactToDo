@@ -1,32 +1,34 @@
-import style from "./Login.module.css"
+import style from "./Registration.module.css"
 import Header from "../components/Header/Header";
 import {Link} from "react-router-dom";
+import {RegistrationDis} from "../redux/actions/todosActions";
 import {useDispatch} from "react-redux";
-import {LoginDis} from "../redux/actions/todosActions"
 
-export default function Login() {
+export default function Registration() {
     const dispatch = useDispatch()
 
-    const loginFunc = async (e) => {
+
+    const registrationFunc = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
-        dispatch(LoginDis(
+        dispatch(RegistrationDis(
             formData.get('email'),
             formData.get('password')
         ))
     }
 
+
     return (
         <div>
             <Header
-                value='Login'
+                value='Registration'
             />
-            <div className={style.logPage} onSubmit={loginFunc}>
-                <form>
+            <div className={style.regPage}>
+                <form onSubmit={registrationFunc}>
                     <input type='email' id='email' name='email' placeholder='Enter your email'/>
                     <input type='password' id='password' name='password' placeholder='Enter your password'/>
-                    <button className={style.loginButton} name='log'>Login</button>
-                    <Link className={style.link} to="/registration"> Registration </Link>
+                    <button className={style.regButton} name='reg'>Registration</button>
+                    <Link className={style.link} to="/login"> Login </Link>
                 </form>
             </div>
         </div>
