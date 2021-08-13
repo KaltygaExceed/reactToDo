@@ -12,7 +12,8 @@ import {useEffect} from "react";
 
 function App() {
     const dispatch = useDispatch()
-const {isToken} = useSelector(state=>state.todosReducer)
+    const {isToken} = useSelector(state=>state.todosReducer)
+    const {isLoading} = useSelector(state=>state.todosReducer)
 
     useEffect(()=>{
         if (localStorage.getItem('token')) {
@@ -22,13 +23,12 @@ const {isToken} = useSelector(state=>state.todosReducer)
 
     return (
         <Router>
-
+            {isLoading && (<div className="loaderContainer"><div className="lds-hourglass" /></div>)}
             <Switch>
                 <Route exact path={'/'} ><Redirect to="/main" /></Route>
                 <PrivateRoute exact path={'/login'} component={Login} auth={!isToken} to={'/main'} />
                 <PrivateRoute exact path={'/registration'} component={Registration} auth={!isToken} to={'/main'} />
                 <PrivateRoute exact path={'/main'} component={MainPage} auth={isToken} to={'/login'} />
-
             </Switch>
 
         </Router>

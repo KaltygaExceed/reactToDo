@@ -7,14 +7,17 @@ import {
     VIEW_ALL,
     VIEW_CHECKED,
     VIEW_UNCHECKED,
-    LOGIN
+    LOGIN,
+    LOADER_START,
+    LOADER_END
 } from "../actions/types";
 
 
 const defaultState = {
     todos: [],
     viewOptions: 'all',
-    isToken: false
+    isToken: false,
+    isLoading: false
 }
 
 
@@ -81,6 +84,20 @@ export default function todosReducer(state = defaultState, action) {
             return {
                 ...state,
                 viewOptions: 'unchecked'
+            }
+
+            //==========================================================
+
+        case LOADER_START:
+            return {
+                ...state,
+                isLoading: true
+            }
+
+        case LOADER_END:
+            return {
+                ...state,
+                isLoading: false
             }
 
 

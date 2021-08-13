@@ -8,11 +8,14 @@ import {
     VIEW_CHECKED,
     VIEW_UNCHECKED,
     LOGIN,
+    LOADER_START,
+    LOADER_END
 } from "./types";
 import axios from "axios";
 
 export const getUsersTasks = () => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             const response = await axios.get('http://localhost:8000/getAll',
                 {
@@ -30,7 +33,7 @@ export const getUsersTasks = () => {
             window.location = window.location
             console.log(error)
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 
@@ -38,6 +41,7 @@ export const getUsersTasks = () => {
 
 export const LoginDis = (username, password) => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             const response = await axios.post('http://localhost:8000/login',
                 {
@@ -50,13 +54,14 @@ export const LoginDis = (username, password) => {
         } catch (error) {
             alert(error.message)
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const RegistrationDis = (username, password) => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             const response = await axios.post('http://localhost:8000/registration',
                 {
@@ -68,13 +73,14 @@ export const RegistrationDis = (username, password) => {
         } catch (error) {
             alert(error.message)
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const AddTodoDis = ({text, isCheck}) => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             const response = await axios.post('http://localhost:8000/createTask',
                 {
@@ -90,13 +96,14 @@ export const AddTodoDis = ({text, isCheck}) => {
             window.location = window.location
             localStorage.removeItem('token')
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const deleteTodoDis = (id) => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             await axios.delete(`http://localhost:8000/deleteTask?id=${id}`,
                 {
@@ -108,13 +115,14 @@ export const deleteTodoDis = (id) => {
             localStorage.removeItem('token')
             window.location = window.location
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const checkTodoDis = (id, isCheck) => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             await axios.patch('http://localhost:8000/checkTask',
                 {
@@ -129,13 +137,14 @@ export const checkTodoDis = (id, isCheck) => {
             window.location = window.location
             localStorage.removeItem('token')
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const checkAllDis = () => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             await axios.patch('http://localhost:8000/checkAllTasks',
                 {}, {
@@ -147,13 +156,14 @@ export const checkAllDis = () => {
             localStorage.removeItem('token')
             window.location = window.location
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
 
 export const deleteCheckedDis = () => {
     return async (dispatch) => {
+        dispatch(StartLoading())
         try {
             await axios.delete('http://localhost:8000/deleteChecked',
                 {
@@ -165,7 +175,7 @@ export const deleteCheckedDis = () => {
             localStorage.removeItem('token')
             window.location = window.location
         } finally {
-
+            dispatch(EndLoading())
         }
     }
 }
@@ -181,3 +191,6 @@ export const CheckAll = () => ({type: CHECK_ALL})
 export const ViewAll = () => ({type: VIEW_ALL})
 export const ViewChecked = () => ({type: VIEW_CHECKED})
 export const ViewUnchecked = () => ({type: VIEW_UNCHECKED})
+
+export const StartLoading = () => ({type: LOADER_START})
+export const EndLoading = () => ({type: LOADER_END})

@@ -10,3 +10,6 @@ export const VIEW_ALL = 'VIEW_ALL'
 export const VIEW_CHECKED = 'VIEW_CHECKED'
 export const VIEW_UNCHECKED = 'VIEW_UNCHECKED'
 
+export const LOADER_START = 'LOADER_START'
+export const LOADER_END = 'LOADER_END'
+
