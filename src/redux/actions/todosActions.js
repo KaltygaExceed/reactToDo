@@ -26,7 +26,11 @@ export const getUsersTasks = () => {
                 dispatch(AddTodo(text, isCheck, id))
             })
         } catch (error) {
-            console.log(error.message)
+            localStorage.removeItem('token')
+            window.location = window.location
+            console.log(error)
+        } finally {
+
         }
     }
 
@@ -44,7 +48,7 @@ export const LoginDis = (username, password) => {
             localStorage.setItem('token', response.data.token)
             dispatch(LoginAction())
         } catch (error) {
-            console.log(error.message)
+            alert(error.message)
         } finally {
 
         }
@@ -62,7 +66,7 @@ export const RegistrationDis = (username, password) => {
             alert(response.data.message)
             dispatch(LoginDis(username, password))
         } catch (error) {
-            console.log(error.message)
+            alert(error.message)
         } finally {
 
         }
@@ -83,6 +87,10 @@ export const AddTodoDis = ({text, isCheck}) => {
             dispatch(AddTodo(text, isCheck, id))
         } catch (error) {
             alert(error.message)
+            window.location = window.location
+            localStorage.removeItem('token')
+        } finally {
+
         }
     }
 }
@@ -97,6 +105,8 @@ export const deleteTodoDis = (id) => {
             dispatch(DelTodo(id))
         } catch (error) {
             alert(error.message)
+            localStorage.removeItem('token')
+            window.location = window.location
         } finally {
 
         }
@@ -115,7 +125,11 @@ export const checkTodoDis = (id, isCheck) => {
                 })
             dispatch(CheckTodo(id))
         } catch (error) {
-            alert(error.message)
+            console.log(error.data)
+            window.location = window.location
+            localStorage.removeItem('token')
+        } finally {
+
         }
     }
 }
@@ -130,6 +144,10 @@ export const checkAllDis = () => {
             dispatch(CheckAll())
         } catch (error) {
             alert(error.message)
+            localStorage.removeItem('token')
+            window.location = window.location
+        } finally {
+
         }
     }
 }
@@ -144,6 +162,10 @@ export const deleteCheckedDis = () => {
             dispatch(DelCompleted())
         } catch (error) {
             alert(error.message)
+            localStorage.removeItem('token')
+            window.location = window.location
+        } finally {
+
         }
     }
 }

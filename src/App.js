@@ -4,27 +4,31 @@ import Login from "./Login/Login";
 import Registration from "./Registration/Registration";
 import MainPage from "./MainPage/MainPage";
 import './App.css';
-import {getUsersTasks, LoginAction} from "./redux/actions/todosActions";
-import {useDispatch} from "react-redux";
+import {LoginAction} from "./redux/actions/todosActions";
+import {useDispatch, useSelector} from "react-redux";
+import PrivateRoute from "./privateRouter";
+import {useEffect} from "react";
 
 
 function App() {
     const dispatch = useDispatch()
+const {isToken} = useSelector(state=>state.todosReducer)
 
-    //сделать useEffect на получение тасок
-    if (localStorage.getItem('token')) {
-        dispatch(LoginAction()) && dispatch(getUsersTasks())
-    }
+    useEffect(()=>{
+        if (localStorage.getItem('token')) {
+            dispatch(LoginAction())
+        }
+    }, [])
 
     return (
         <Router>
+
             <Switch>
-                <Route path='/login' component={Login}/>
-                <Route path='/registration' component={Registration}/>
-                <Route path='/main' component={MainPage}/>
-                <Route exact path='/'>
-                    {(localStorage.getItem('token')) ? <Redirect to='/main'/> : <Redirect to='/login'/> } }
-                </Route>
+                <Route exact path={'/'} ><Redirect to="/main" /></Route>
+                <PrivateRoute exact path={'/login'} component={Login} auth={!isToken} to={'/main'} />
+                <PrivateRoute exact path={'/registration'} component={Registration} auth={!isToken} to={'/main'} />
+                <PrivateRoute exact path={'/main'} component={MainPage} auth={isToken} to={'/login'} />
+
             </Switch>
 
         </Router>
