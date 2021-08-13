@@ -23,7 +23,7 @@ function App() {
 
     return (
         <Router>
-            {isLoading && (<div className="loaderContainer"><div className="lds-hourglass" /></div>)}
+            {!isLoading && (<div className="loaderContainer"><div className="lds-hourglass" /></div>)}
             <Switch>
                 <Route exact path={'/'} ><Redirect to="/main" /></Route>
                 <PrivateRoute exact path={'/login'} component={Login} auth={!isToken} to={'/main'} />
