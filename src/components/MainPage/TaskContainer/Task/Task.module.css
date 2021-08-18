@@ -19,12 +19,19 @@
 }
 
 .taskText {
-    font-size: 18px;
+    font: 19px Roboto;
+    display: flex;
+}
+.textContainer {
+    display: flex;
+    align-items: flex-start;
+    width: 400px;
+    margin-right: 10px;
 }
 
 .doneText {
     text-decoration: line-through;
-    font-size: 18px;
+    font: 19px Roboto;
     color: #c6c4c6;
 }
 

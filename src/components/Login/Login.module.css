@@ -47,3 +47,8 @@ input {
 .link {
     margin-left: 287px;
 }
+
+.aboutLink {
+    position: fixed;
+    margin-left: 15px;
+}

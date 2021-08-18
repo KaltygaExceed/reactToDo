@@ -1,9 +1,9 @@
 import style from './Task.module.css';
-import check from '../../../assets/check.svg'
-import {deleteTodoDis} from "../../../redux/actions/todosActions";
-import {checkTodoDis} from "../../../redux/actions/todosActions";
+import check from '../../../../assets/check.svg'
+import {deleteTodoDis} from "../../../../redux/actions/todosActions";
+import {checkTodoDis} from "../../../../redux/actions/todosActions";
 import {useDispatch} from "react-redux";
-import Delete from "../../../components/UI/Delete";
+import Delete from "../../../UI/Delete";
 
 function Task({todo}) {
     const dispatch = useDispatch()
@@ -20,7 +20,10 @@ function Task({todo}) {
                      className={todo.isCheck ? style.checkSvg : style.checkSvg && style.checkDone}/>
             </div>
         </label>
-        <p className={todo.isCheck ? style.taskText && style.doneText : style.taskText}>{todo.text}</p>
+        <div className={style.textContainer}>
+            <p className={todo.isCheck ? style.taskText && style.doneText : style.taskText}>{todo.text}</p>
+        </div>
+
         <label className={style.deleteContainer}>
             <input
                 type="button" className={style.fakeButton} value='Delete'
@@ -28,7 +31,7 @@ function Task({todo}) {
                     dispatch(deleteTodoDis(todo.id))
                 }}/>
             <Delete
-            className={style.deleteButton}
+                className={style.deleteButton}
             />
         </label>
     </div>)

@@ -9,7 +9,7 @@ import {
     VIEW_UNCHECKED,
     LOGIN,
     LOADER_START,
-    LOADER_END
+    LOADER_END, GET_TODO
 } from "./types";
 import axios from "axios";
 
@@ -21,13 +21,8 @@ export const getUsersTasks = () => {
                 {
                     headers: {"authorization": localStorage.getItem('token')}
                 })
-            let tasksArr = response.data.data
-            tasksArr.forEach(task => {
-                let id = task._id
-                let text = task.text
-                let isCheck = task.isCheck
-                dispatch(AddTodo(text, isCheck, id))
-            })
+            let tasksArr = response.data
+            dispatch(GetTodo(tasksArr))
         } catch (error) {
             localStorage.removeItem('token')
             window.location = window.location
@@ -183,6 +178,7 @@ export const deleteCheckedDis = () => {
 export const LoginAction = () => ({type: LOGIN})
 
 export const AddTodo = (text, isCheck, id) => ({type: ADD_TODO, todo: {text, isCheck, id}})
+export const GetTodo = (array) => ({type: GET_TODO, todos: array})
 export const DelTodo = (id) => ({type: DEL_TODO, id})
 export const CheckTodo = (id) => ({type: CHECK_TODO, id})
 export const DelCompleted = () => ({type: DEL_COMPLETED})

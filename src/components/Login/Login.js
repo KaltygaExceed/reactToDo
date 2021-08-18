@@ -1,8 +1,8 @@
 import style from "./Login.module.css"
-import Header from "../components/Header/Header";
+import Header from "../Header/Header";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {LoginDis} from "../redux/actions/todosActions"
+import {LoginDis} from "../../redux/actions/todosActions"
 
 export default function Login() {
     const dispatch = useDispatch()
@@ -18,6 +18,7 @@ export default function Login() {
 
     return (
         <div>
+            <Link className={style.aboutLink} to="/about"> About </Link>
             <Header
                 value='Login'
             />

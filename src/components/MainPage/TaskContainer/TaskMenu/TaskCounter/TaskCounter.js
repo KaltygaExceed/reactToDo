@@ -1,7 +1,7 @@
 import style from './TaskCounter.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {checkAllDis} from "../../../../redux/actions/todosActions";
+import {checkAllDis} from "../../../../../redux/actions/todosActions";
 
 function TaskCounter () {
     const dispatch = useDispatch()

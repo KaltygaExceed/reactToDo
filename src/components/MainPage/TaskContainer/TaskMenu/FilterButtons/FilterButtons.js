@@ -1,9 +1,9 @@
 import style from './FilterButtons.module.css';
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {ViewAll} from "../../../../redux/actions/todosActions";
-import {ViewChecked} from "../../../../redux/actions/todosActions";
-import {ViewUnchecked} from "../../../../redux/actions/todosActions";
+import {ViewAll} from "../../../../../redux/actions/todosActions";
+import {ViewChecked} from "../../../../../redux/actions/todosActions";
+import {ViewUnchecked} from "../../../../../redux/actions/todosActions";
 
 function FilterButtons() {
     const {viewOptions} = useSelector((state) => state.todosReducer)

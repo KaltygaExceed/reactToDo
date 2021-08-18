@@ -3,7 +3,7 @@ import TaskMenu from "./TaskMenu/TaskMenu";
 import React, {useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import style from "./TaskContainer.module.css"
-import {getUsersTasks} from "../../redux/actions/todosActions";
+import {getUsersTasks} from "../../../redux/actions/todosActions";
 
 export default function TaskContainer() {
     const dispatch = useDispatch()

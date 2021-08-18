@@ -1,7 +1,7 @@
 import style from './InputTask.module.css';
 import React, {useState} from "react";
 import {useDispatch} from "react-redux";
-import {AddTodoDis} from "../../redux/actions/todosActions";
+import {AddTodoDis} from "../../../redux/actions/todosActions";
 
 
 function InputTask() {

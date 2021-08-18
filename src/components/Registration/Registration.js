@@ -1,7 +1,7 @@
 import style from "./Registration.module.css"
-import Header from "../components/Header/Header";
+import Header from "../Header/Header";
 import {Link} from "react-router-dom";
-import {RegistrationDis} from "../redux/actions/todosActions";
+import {RegistrationDis} from "../../redux/actions/todosActions";
 import {useDispatch} from "react-redux";
 
 export default function Registration() {
@@ -20,6 +20,7 @@ export default function Registration() {
 
     return (
         <div>
+            <Link className={style.aboutLink} to="/about"> About </Link>
             <Header
                 value='Registration'
             />

@@ -1,5 +1,6 @@
 import {
     ADD_TODO,
+    GET_TODO,
     DEL_TODO,
     CHECK_TODO,
     DEL_COMPLETED,
@@ -30,6 +31,11 @@ export default function todosReducer(state = defaultState, action) {
             }
 
         //=============================================================
+        case GET_TODO:
+            return {
+                ...state,
+                todos: action.todos
+            }
 
         case ADD_TODO:
             return {
@@ -40,7 +46,7 @@ export default function todosReducer(state = defaultState, action) {
         case DEL_TODO :
             return {
                 ...state,
-                todos:  state.todos.filter(todo => todo.id !== action.id)
+                todos: state.todos.filter(todo => todo.id !== action.id)
             }
 
         case CHECK_TODO :
@@ -86,7 +92,7 @@ export default function todosReducer(state = defaultState, action) {
                 viewOptions: 'unchecked'
             }
 
-            //==========================================================
+        //==========================================================
 
         case LOADER_START:
             return {
