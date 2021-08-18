@@ -32,6 +32,7 @@ function App() {
         <Router>
             {isToken && (<Link className="logout" onClick={() =>logout()}> Logout </Link>)}
             {isLoading && (<div className="loaderContainer"><div className="lds-hourglass" /></div>)}
+
             <Switch>
                 <Route exact path={'/'} ><Redirect to="/main" /></Route>
                 <Route exact path={'/about'} component={AboutPage}/>
